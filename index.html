@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feather Choice Poultry | Quality Heritage & Farm Chickens</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(20, 83, 45, 0.85) 100%), 
+                  url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-amber-500 text-slate-900 text-xs font-bold py-2 px-4 text-center tracking-wide">
+    <i class="fa-solid fa-truck-fast mr-2"></i> Free Farm Delivery on Bulk Live Orders over 50+ Head | Fully Vaccinated & Certified
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
+          <div class="bg-emerald-700 text-amber-400 p-2.5 rounded-2xl shadow-md">
+            <i class="fa-solid fa-feather-pointed text-2xl"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-extrabold text-emerald-950 tracking-tight block leading-none">Feather<span class="text-amber-500">Choice</span></span>
+            <span class="text-xs font-semibold text-slate-500 tracking-wider uppercase">Poultry Farms</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm">
+          <button onclick="showSection('home')" class="nav-link text-emerald-700 font-bold hover:text-emerald-600 transition">Home</button>
+          <button onclick="showSection('products'); setCategory('all')" class="nav-link text-slate-600 hover:text-emerald-700 transition">All Chickens</button>
+          <button onclick="showSection('products'); setCategory('4-month')" class="nav-link text-slate-600 hover:text-emerald-700 transition">4-Month Olds</button>
+          <button onclick="showSection('products'); setCategory('5-month')" class="nav-link text-slate-600 hover:text-emerald-700 transition">5-Month Olds</button>
+          <button onclick="showSection('products'); setCategory('6-month-plus')" class="nav-link text-slate-600 hover:text-emerald-700 transition">6-Month & Older</button>
+        </nav>
+
+        <!-- Right Action Buttons -->
+        <div class="flex items-center space-x-4">
+          <!-- Admin Dashboard Toggle Button -->
+          <button onclick="showSection('admin')" class="px-4 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-xl transition flex items-center border border-emerald-200">
+            <i class="fa-solid fa-user-shield mr-2 text-sm text-emerald-600"></i> Admin Panel
+          </button>
+
+          <!-- Shopping Cart Icon -->
+          <button onclick="toggleCartDrawer()" class="relative p-2.5 text-slate-700 hover:text-emerald-700 transition">
+            <i class="fa-solid fa-basket-shopping text-2xl"></i>
+            <span id="cartBadge" class="absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-xs font-extrabold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-grow">
+
+    <!-- SECTION 1: HOMEPAGE -->
+    <section id="homeSection">
+      <!-- Hero Banner -->
+      <div class="hero-bg text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+          <span class="inline-block bg-amber-400 text-slate-950 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+            100% Organically Raised & NPIP Certified
+          </span>
+          <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+            Premium Live Chickens for Egg Production & Breeding
+          </h1>
+          <p class="text-lg sm:text-xl text-emerald-100 font-medium max-w-2xl mx-auto">
+            Ethically raised pullets, layers, and mature chickens delivered straight from our pastures to your local farm or backyard coop.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <button onclick="showSection('products')" class="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold rounded-2xl shadow-xl transition hover:-translate-y-0.5">
+              Browse All Breeds <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+            <button onclick="scrollToFeatured()" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold backdrop-blur-md rounded-2xl border border-white/20 transition">
+              View Featured Chickens
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Benefits / Features -->
+      <div class="bg-white py-12 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
+              <div class="bg-emerald-700 text-amber-400 p-3 rounded-xl">
+                <i class="fa-solid fa-syringe text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Vaccinated & Health Checked</h3>
+                <p class="text-sm text-slate-600 mt-1">Every bird undergoes veterinary inspection and Marek's vaccination before delivery.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100">
+              <div class="bg-amber-500 text-slate-950 p-3 rounded-xl">
+                <i class="fa-solid fa-wheat-awn text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Pasture Raised Quality</h3>
+                <p class="text-sm text-slate-600 mt-1">Free-range environment yielding healthy growth rates, vibrant plumage, and friendly temperaments.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
+              <div class="bg-emerald-700 text-amber-400 p-3 rounded-xl">
+                <i class="fa-solid fa-truck-ramp-box text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Safe Live Animal Transport</h3>
+                <p class="text-sm text-slate-600 mt-1">Climate-controlled crates ensure low stress and 100% live arrival guaranteed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Age Category Selector -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900">Shop Chickens by Age Bracket</h2>
+          <p class="text-slate-600 mt-2 font-medium">Select an age stage suited for your farm's egg production goals.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 4 Month Old Card -->
+          <div onclick="showSection('products'); setCategory('4-month')" class="group cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-emerald-600 text-white font-bold text-xs px-4 py-1.5 rounded-bl-2xl">
+              Young Pullets
+            </div>
+            <div class="bg-emerald-100 text-emerald-800 h-16 w-16 rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+              4M
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition">4-Month-Old Chickens</h3>
+            <p class="text-slate-600 text-sm mt-2">Grow-out phase birds. Perfect for keepers preparing for upcoming seasonal egg layers. Very energetic & adaptable.</p>
+            <div class="mt-6 flex items-center text-emerald-700 font-bold text-sm">
+              Explore 4-Month Breeds <i class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- 5 Month Old Card -->
+          <div onclick="showSection('products'); setCategory('5-month')" class="group cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-xs px-4 py-1.5 rounded-bl-2xl">
+              Ready-to-Lay Soon
+            </div>
+            <div class="bg-amber-100 text-amber-800 h-16 w-16 rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+              5M
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-amber-600 transition">5-Month-Old Chickens</h3>
+            <p class="text-slate-600 text-sm mt-2">Point-of-lay pullets. Approaching maturity with first eggs expected within 2 to 4 weeks.</p>
+            <div class="mt-6 flex items-center text-amber-600 font-bold text-sm">
+              Explore 5-Month Breeds <i class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- 6 Month & Older Card -->
+          <div onclick="showSection('products'); setCategory('6-month-plus')" class="group cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-slate-900 text-white font-bold text-xs px-4 py-1.5 rounded-bl-2xl">
+              Active Layers & Breeders
+            </div>
+            <div class="bg-slate-100 text-slate-800 h-16 w-16 rounded-2xl flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+              6M+
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-slate-700 transition">6-Month & Older</h3>
+            <p class="text-slate-600 text-sm mt-2">Fully mature birds in prime egg production. Excellent choice for immediate farm egg harvest or flock breeding.</p>
+            <div class="mt-6 flex items-center text-slate-800 font-bold text-sm">
+              Explore Mature Breeds <i class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Product Section -->
+      <div id="featuredSection" class="bg-slate-100 py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10">
+            <div>
+              <span class="text-xs font-black uppercase tracking-wider text-emerald-700">Hand-Picked Flock</span>
+              <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Featured Chickens</h2>
+            </div>
+            <button onclick="showSection('products'); setCategory('all')" class="mt-4 md:mt-0 text-emerald-700 font-bold hover:underline flex items-center">
+              View Complete Inventory <i class="fa-solid fa-arrow-right-long ml-2"></i>
+            </button>
+          </div>
+
+          <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic featured cards rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PRODUCT LISTINGS & CATEGORIES -->
+    <section id="productsSection" class="hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="mb-8">
+          <h1 class="text-3xl font-black text-slate-900">Poultry Catalog & Availability</h1>
+          <p class="text-slate-600 font-medium mt-1">Filter by age bracket, search specific breeds, or sort by pricing.</p>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-8 flex flex-col lg:flex-row gap-4 justify-between items-center">
+          
+          <!-- Age Category Filter Pills -->
+          <div class="flex flex-wrap gap-2 w-full lg:w-auto">
+            <button onclick="setCategory('all')" id="filter-all" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-sm">
+              All Chickens
+            </button>
+            <button onclick="setCategory('4-month')" id="filter-4-month" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+              4-Month Olds
+            </button>
+            <button onclick="setCategory('5-month')" id="filter-5-month" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+              5-Month Olds
+            </button>
+            <button onclick="setCategory('6-month-plus')" id="filter-6-month-plus" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+              6-Month & Older
+            </button>
+          </div>
+
+          <!-- Search & Sort Controls -->
+          <div class="flex items-center space-x-3 w-full lg:w-auto">
+            <div class="relative flex-grow lg:w-64">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Search breed name..." class="w-full pl-9 pr-4 py-2 text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600">
+            </div>
+            <select id="sortBy" onchange="renderProducts()" class="py-2 px-3 text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600">
+              <option value="default">Sort: Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="age">Age</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamic product cards populated via JS -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="noResults" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300">
+          <i class="fa-solid fa-kiwi-bird text-5xl text-slate-300 mb-4"></i>
+          <h3 class="text-lg font-bold text-slate-700">No Chickens Found</h3>
+          <p class="text-slate-500 text-sm mt-1">Try adjusting your age category filter or search terms.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: ADMIN DASHBOARD -->
+    <section id="adminSection" class="hidden py-12 bg-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+          <div>
+            <div class="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+              <i class="fa-solid fa-sliders"></i> <span>Poultry Operations Control</span>
+            </div>
+            <h1 class="text-3xl font-black text-slate-900">Admin Dashboard</h1>
+            <p class="text-slate-600 text-sm mt-1">Add new stock, modify pricing, update age categories, and manage inventory state.</p>
+          </div>
+          
+          <button onclick="openAdminModal()" class="px-5 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-md transition flex items-center text-sm">
+            <i class="fa-solid fa-plus-circle mr-2 text-lg"></i> Add New Chicken Breed
+          </button>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Breeds</span>
+            <p id="statTotalBreeds" class="text-3xl font-black text-slate-900 mt-1">0</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Head Count</span>
+            <p id="statTotalHead" class="text-3xl font-black text-emerald-700 mt-1">0</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Low Stock Warnings</span>
+            <p id="statLowStock" class="text-3xl font-black text-amber-500 mt-1">0</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Est. Stock Valuation</span>
+            <p id="statValuation" class="text-3xl font-black text-slate-900 mt-1">$0.00</p>
+          </div>
+        </div>
+
+        <!-- Inventory Data Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <h3 class="font-bold text-slate-800">Chicken Inventory Listings</h3>
+            <button onclick="resetDefaultData()" class="text-xs font-bold text-slate-500 hover:text-red-600 transition">
+              <i class="fa-solid fa-rotate-right mr-1"></i> Reset to Sample Data
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 bg-slate-100/50 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <th class="py-3.5 px-6">Chicken Breed / Name</th>
+                  <th class="py-3.5 px-4">Age Bracket</th>
+                  <th class="py-3.5 px-4">Price / Head</th>
+                  <th class="py-3.5 px-4">Available Stock</th>
+                  <th class="py-3.5 px-4">Status</th>
+                  <th class="py-3.5 px-6 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminTableBody" class="divide-y divide-slate-200 text-sm font-medium text-slate-700">
+                <!-- JS Populated rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="detailModal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl overflow-hidden relative">
+      <button onclick="closeDetailModal()" class="absolute top-4 right-4 bg-slate-900/60 hover:bg-slate-900 text-white rounded-full p-2 transition z-10">
+        <i class="fa-solid fa-xmark text-lg w-6 h-6 flex items-center justify-center"></i>
+      </button>
+
+      <div id="detailModalContent">
+        <!-- JS rendered detail view -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD / EDIT PRODUCT MODAL -->
+  <div id="adminModal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex justify-between items-center mb-6">
+        <h3 id="adminModalTitle" class="text-2xl font-black text-slate-900">Add New Chicken Breed</h3>
+        <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <form id="productForm" onsubmit="handleProductFormSubmit(event)" class="space-y-4">
+        <input type="hidden" id="editProductId">
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Breed Name</label>
+          <input type="text" id="formName" required placeholder="e.g. Black Australorp" class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Age Category</label>
+            <select id="formCategory" required class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+              <option value="4-month">4-Month Old</option>
+              <option value="5-month">5-Month Old</option>
+              <option value="6-month-plus">6-Month & Older</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Exact Age / Stage</label>
+            <input type="text" id="formAgeText" required placeholder="e.g. 16 Weeks" class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Price per Head (\$)</label>
+            <input type="number" step="0.01" id="formPrice" required placeholder="25.00" class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Available Quantity</label>
+            <input type="number" id="formStock" required placeholder="15" class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Image URL</label>
+          <input type="url" id="formImage" required placeholder="https://images.unsplash.com/..." class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Breed Description</label>
+          <textarea id="formDescription" rows="3" required placeholder="Describe temperament, egg laying ability, and characteristics..." class="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-4 flex justify-end space-x-3">
+          <button type="button" onclick="closeAdminModal()" class="px-5 py-2.5 text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2.5 text-sm font-bold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-md transition">
+            Save Listing
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SHOPPING CART SLIDE-OVER DRAWER -->
+  <div id="cartDrawer" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden transition-opacity">
+    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col justify-between">
+      
+      <!-- Cart Drawer Header -->
+      <div class="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-basket-shopping text-emerald-700 text-xl"></i>
+          <h2 class="text-xl font-black text-slate-900">Your Coop Order</h2>
+        </div>
+        <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Cart Items List Container -->
+      <div id="cartItemsList" class="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar">
+        <!-- Dynamically rendered cart items -->
+      </div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="p-6 border-t border-slate-200 bg-slate-50 space-y-4">
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between text-slate-600">
+            <span>Subtotal</span>
+            <span id="cartSubtotal" class="font-bold text-slate-800">$0.00</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span>Live Transport & Crates</span>
+            <span id="cartShipping" class="font-bold text-slate-800">$25.00</span>
+          </div>
+          <div class="flex justify-between text-base font-black text-slate-900 pt-2 border-t border-slate-200">
+            <span>Total Amount</span>
+            <span id="cartTotal" class="text-emerald-700">$0.00</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutOrder()" class="w-full py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold rounded-2xl shadow-lg transition flex items-center justify-center space-x-2">
+          <span>Complete Live Animal Order</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 border-t border-slate-900 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="bg-amber-500 text-slate-950 p-2 rounded-xl">
+              <i class="fa-solid fa-feather-pointed text-lg"></i>
+            </div>
+            <span class="text-xl font-black text-white tracking-tight">FeatherChoice</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Leading supplier of certified 4-month, 5-month, and mature laying hens. Dedicated to humane, pasture-raised standards.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase text-amber-400 tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li><a href="#" onclick="showSection('home'); return false;" class="hover:text-white transition">Home</a></li>
+            <li><a href="#" onclick="showSection('products'); setCategory('all'); return false;" class="hover:text-white transition">All Chickens</a></li>
+            <li><a href="#" onclick="showSection('admin'); return false;" class="hover:text-white transition">Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase text-amber-400 tracking-wider mb-4">Age Categories</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li><a href="#" onclick="showSection('products'); setCategory('4-month'); return false;" class="hover:text-white transition">4-Month Pullets</a></li>
+            <li><a href="#" onclick="showSection('products'); setCategory('5-month'); return false;" class="hover:text-white transition">5-Month Point-of-Lay</a></li>
+            <li><a href="#" onclick="showSection('products'); setCategory('6-month-plus'); return false;" class="hover:text-white transition">6-Month+ Active Layers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase text-amber-400 tracking-wider mb-4">Farm Hours & Contact</h4>
+          <p class="text-xs text-slate-400 leading-relaxed mb-2">
+            <i class="fa-solid fa-location-dot mr-2 text-amber-400"></i> Pasture Way, Valley Poultry Hub
+          </p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            <i class="fa-solid fa-phone mr-2 text-amber-400"></i> (555) 839-2019
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+        &copy; 2026 Feather Choice Poultry E-Commerce Platform. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPLICATION LOGIC & STATE MANAGEMENT -->
+  <script>
+    // Initial Seed Data for Chicken Products
+    const initialProducts = [
+      {
+        id: "chk-1",
+        name: "Rhode Island Red",
+        category: "4-month",
+        ageText: "16 Weeks Old",
+        price: 24.50,
+        stock: 35,
+        image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80",
+        description: "Hardy 4-month-old pullet. Known for fantastic adaptability, friendly nature, and rich brown egg production once fully mature.",
+        featured: true
+      },
+      {
+        id: "chk-2",
+        name: "Buff Orpington",
+        category: "5-month",
+        ageText: "20 Weeks (Point of Lay)",
+        price: 32.00,
+        stock: 18,
+        image: "https://images.unsplash.com/photo-1598965402089-897ce52e8355?auto=format&fit=crop&w=800&q=80",
+        description: "Extremely docile and golden-feathered 5-month-old chicken. Ready to begin laying high quality large light brown eggs within weeks.",
+        featured: true
+      },
+      {
+        id: "chk-3",
+        name: "Black Australorp",
+        category: "6-month-plus",
+        ageText: "26 Weeks (Active Layer)",
+        price: 38.00,
+        stock: 12,
+        image: "https://images.unsplash.com/photo-1612170153139-6f881ff067e0?auto=format&fit=crop&w=800&q=80",
+        description: "Mature 6-month-plus hen in peak laying production. Holds world records for egg laying capability. Quiet and resilient in all weather.",
+        featured: true
+      },
+      {
+        id: "chk-4",
+        name: "Plymouth Barred Rock",
+        category: "4-month",
+        ageText: "16 Weeks Old",
+        price: 26.00,
+        stock: 22,
+        image: "https://images.unsplash.com/photo-1563281577-a7be47e20db9?auto=format&fit=crop&w=800&q=80",
+        description: "Distinctive black and white striped plumage. Fantastic dual-purpose breed that thrives on free-range pastures.",
+        featured: false
+      },
+      {
+        id: "chk-5",
+        name: "Ameraucana (Easter Egger)",
+        category: "5-month",
+        ageText: "21 Weeks Old",
+        price: 35.50,
+        stock: 14,
+        image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80",
+        description: "Sought-after 5-month chicken breed producing unique blue and turquoise colored eggs. Very friendly and charming personalities.",
+        featured: false
+      },
+      {
+        id: "chk-6",
+        name: "Leghorn White",
+        category: "6-month-plus",
+        ageText: "28 Weeks (Prime Layer)",
+        price: 30.00,
+        stock: 28,
+        image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80",
+        description: "Unmatched egg production efficiency. Fully mature 6-month-old hen laying clean white eggs with minimal feed conversion cost.",
+        featured: false
+      }
+    ];
+
+    // State Variables
+    let products = JSON.parse(localStorage.getItem('featherChoiceProducts')) || initialProducts;
+    let cart = [];
+    let currentCategory = 'all';
+
+    // Save Products state to LocalStorage
+    function saveProductsToStorage() {
+      localStorage.setItem('featherChoiceProducts', JSON.stringify(products));
+    }
+
+    // Reset Data back to default
+    function resetDefaultData() {
+      if (confirm('Are you sure you want to reset all inventory data back to defaults?')) {
+        products = [...initialProducts];
+        saveProductsToStorage();
+        renderAll();
+      }
+    }
+
+    // Navigation View Switcher
+    function showSection(sectionName) {
+      document.getElementById('homeSection').classList.add('hidden');
+      document.getElementById('productsSection').classList.add('hidden');
+      document.getElementById('adminSection').classList.add('hidden');
+
+      if (sectionName === 'home') {
+        document.getElementById('homeSection').classList.remove('hidden');
+      } else if (sectionName === 'products') {
+        document.getElementById('productsSection').classList.remove('hidden');
+      } else if (sectionName === 'admin') {
+        document.getElementById('adminSection').classList.remove('hidden');
+        renderAdminTable();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToFeatured() {
+      document.getElementById('featuredSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Category Filter Switcher
+    function setCategory(cat) {
+      currentCategory = cat;
+      
+      // Update Filter button active UI
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('bg-emerald-700', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-slate-100', 'text-slate-700');
+      });
+
+      const activeBtn = document.getElementById(`filter-${cat}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+        activeBtn.classList.add('bg-emerald-700', 'text-white', 'shadow-sm');
+      }
+
+      renderProducts();
+    }
+
+    // Render Featured Cards on Homepage
+    function renderFeatured() {
+      const featuredGrid = document.getElementById('featuredGrid');
+      const featuredList = products.filter(p => p.featured || p.stock > 15).slice(0, 3);
+
+      featuredGrid.innerHTML = featuredList.map(item => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-52 overflow-hidden">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-4 left-4 bg-emerald-900/90 text-amber-400 backdrop-blur-md px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+                ${getCategoryBadgeText(item.category)}
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-extrabold text-slate-900">${item.name}</h3>
+                <span class="text-xl font-black text-emerald-700">$${item.price.toFixed(2)}</span>
+              </div>
+              <p class="text-xs text-slate-500 font-semibold mb-4"><i class="fa-solid fa-clock mr-1 text-amber-500"></i> ${item.ageText}</p>
+              <p class="text-slate-600 text-sm line-clamp-2">${item.description}</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 flex gap-3">
+            <button onclick="openDetailModal('${item.id}')" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition">
+              View Details
+            </button>
+            <button onclick="addToCart('${item.id}')" class="flex-1 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs transition shadow-md">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render Main Product Listings
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const noResults = document.getElementById('noResults');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      const sortBy = document.getElementById('sortBy').value;
+
+      let filtered = products.filter(p => {
+        const matchesCategory = (currentCategory === 'all') || (p.category === currentCategory);
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery);
+        return matchesCategory && matchesSearch;
+      });
+
+      // Sort
+      if (sortBy === 'price-low') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortBy === 'price-high') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortBy === 'age') {
+        filtered.sort((a, b) => a.category.localeCompare(b.category));
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-4 left-4 bg-emerald-950/90 text-amber-400 backdrop-blur-md px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+                ${getCategoryBadgeText(item.category)}
+              </span>
+              <span class="absolute bottom-4 right-4 ${item.stock > 5 ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'} px-3 py-1 rounded-full text-xs font-bold">
+                ${item.stock > 0 ? `${item.stock} Available` : 'Out of Stock'}
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition">${item.name}</h3>
+                <span class="text-2xl font-black text-emerald-700">$${item.price.toFixed(2)}</span>
+              </div>
+              <p class="text-xs text-amber-600 font-bold mb-3"><i class="fa-solid fa-cake-candles mr-1"></i> ${item.ageText}</p>
+              <p class="text-slate-600 text-sm leading-relaxed">${item.description}</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 flex gap-3">
+            <button onclick="openDetailModal('${item.id}')" class="w-1/2 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition">
+              Quick Details
+            </button>
+            <button onclick="addToCart('${item.id}')" ${item.stock === 0 ? 'disabled' : ''} class="w-1/2 py-3 ${item.stock > 0 ? 'bg-emerald-700 hover:bg-emerald-800' : 'bg-slate-300 cursor-not-allowed'} text-white font-bold rounded-xl text-xs transition shadow-md flex items-center justify-center space-x-1">
+              <i class="fa-solid fa-cart-plus mr-1"></i>
+              <span>${item.stock > 0 ? 'Add to Cart' : 'Sold Out'}</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Helper for category badge text
+    function getCategoryBadgeText(cat) {
+      if (cat === '4-month') return '4-Month Old';
+      if (cat === '5-month') return '5-Month Old';
+      if (cat === '6-month-plus') return '6-Month & Older';
+      return cat;
+    }
+
+    // Render Admin Dashboard Table
+    function renderAdminTable() {
+      const tbody = document.getElementById('adminTableBody');
+      
+      // Calculate Stats
+      const totalBreeds = products.length;
+      const totalHead = products.reduce((acc, p) => acc + Number(p.stock), 0);
+      const lowStock = products.filter(p => p.stock <= 5).length;
+      const valuation = products.reduce((acc, p) => acc + (p.price * p.stock), 0);
+
+      document.getElementById('statTotalBreeds').innerText = totalBreeds;
+      document.getElementById('statTotalHead').innerText = totalHead;
+      document.getElementById('statLowStock').innerText = lowStock;
+      document.getElementById('statValuation').innerText = `$${valuation.toFixed(2)}`;
+
+      tbody.innerHTML = products.map(item => `
+        <tr class="hover:bg-slate-50 transition">
+          <td class="py-4 px-6 flex items-center space-x-3">
+            <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover border border-slate-200">
+            <div>
+              <span class="font-bold text-slate-900 block">${item.name}</span>
+              <span class="text-xs text-slate-400">ID: ${item.id}</span>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="inline-block bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded-lg font-bold">
+              ${getCategoryBadgeText(item.category)}
+            </span>
+          </td>
+          <td class="py-4 px-4 font-extrabold text-slate-900">$${item.price.toFixed(2)}</td>
+          <td class="py-4 px-4 font-bold ${item.stock <= 5 ? 'text-amber-600' : 'text-slate-700'}">${item.stock} head</td>
+          <td class="py-4 px-4">
+            ${item.stock > 0 
+              ? '<span class="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full"><i class="fa-solid fa-circle text-[8px] mr-1.5"></i> In Stock</span>'
+              : '<span class="inline-flex items-center text-xs font-bold text-red-700 bg-red-50 px-2.5 py-1 rounded-full"><i class="fa-solid fa-circle text-[8px] mr-1.5"></i> Out of Stock</span>'}
+          </td>
+          <td class="py-4 px-6 text-right space-x-2">
+            <button onclick="editProduct('${item.id}')" class="p-2 text-slate-600 hover:text-emerald-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button onclick="deleteProduct('${item.id}')" class="p-2 text-slate-600 hover:text-red-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Modal Control: Detail View
+    function openDetailModal(productId) {
+      const p = products.find(prod => prod.id === productId);
+      if (!p) return;
+
+      const modalContent = document.getElementById('detailModalContent');
+      modalContent.innerHTML = `
+        <div class="relative h-64 sm:h-80">
+          <img src="${p.image}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+            <div>
+              <span class="bg-amber-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                ${getCategoryBadgeText(p.category)}
+              </span>
+              <h2 class="text-3xl font-black text-white">${p.name}</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-3 gap-4 bg-slate-50 p-4 rounded-2xl text-center border border-slate-200">
+            <div>
+              <span class="text-xs font-bold text-slate-400 uppercase">Age Group</span>
+              <p class="font-extrabold text-slate-800 text-sm mt-0.5">${p.ageText}</p>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-slate-400 uppercase">Unit Price</span>
+              <p class="font-extrabold text-emerald-700 text-base mt-0.5">$${p.price.toFixed(2)}</p>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-slate-400 uppercase">In Coop Stock</span>
+              <p class="font-extrabold text-slate-800 text-sm mt-0.5">${p.stock} head</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider mb-2">Breed Characteristics & Description</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">${p.description}</p>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4 space-y-3">
+            <div class="flex items-center text-xs text-slate-600">
+              <i class="fa-solid fa-circle-check text-emerald-600 mr-2 text-sm"></i> NPIP Marek's & Newcastle Vaccinated
+            </div>
+            <div class="flex items-center text-xs text-slate-600">
+              <i class="fa-solid fa-circle-check text-emerald-600 mr-2 text-sm"></i> Live Animal Arrival Guarantee Included
+            </div>
+          </div>
+
+          <button onclick="addToCart('${p.id}'); closeDetailModal();" ${p.stock === 0 ? 'disabled' : ''} class="w-full py-4 ${p.stock > 0 ? 'bg-emerald-700 hover:bg-emerald-800' : 'bg-slate-300'} text-white font-extrabold rounded-2xl shadow-lg transition flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span>Add to Order Cart</span>
+          </button>
+        </div>
+      `;
+
+      document.getElementById('detailModal').classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+    }
+
+    // Admin Modal Controls
+    function openAdminModal() {
+      document.getElementById('adminModalTitle').innerText = "Add New Chicken Breed";
+      document.getElementById('productForm').reset();
+      document.getElementById('editProductId').value = '';
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function editProduct(productId) {
+      const p = products.find(prod => prod.id === productId);
+      if (!p) return;
+
+      document.getElementById('adminModalTitle').innerText = "Edit Chicken Listing";
+      document.getElementById('editProductId').value = p.id;
+      document.getElementById('formName').value = p.name;
+      document.getElementById('formCategory').value = p.category;
+      document.getElementById('formAgeText').value = p.ageText;
+      document.getElementById('formPrice').value = p.price;
+      document.getElementById('formStock').value = p.stock;
+      document.getElementById('formImage').value = p.image;
+      document.getElementById('formDescription').value = p.description;
+
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+
+    function handleProductFormSubmit(e) {
+      e.preventDefault();
+      const editId = document.getElementById('editProductId').value;
+
+      const newProduct = {
+        id: editId || 'chk-' + Date.now(),
+        name: document.getElementById('formName').value,
+        category: document.getElementById('formCategory').value,
+        ageText: document.getElementById('formAgeText').value,
+        price: parseFloat(document.getElementById('formPrice').value),
+        stock: parseInt(document.getElementById('formStock').value),
+        image: document.getElementById('formImage').value,
+        description: document.getElementById('formDescription').value,
+        featured: false
+      };
+
+      if (editId) {
+        // Update existing
+        const index = products.findIndex(p => p.id === editId);
+        if (index !== -1) products[index] = newProduct;
+      } else {
+        // Create new
+        products.push(newProduct);
+      }
+
+      saveProductsToStorage();
+      closeAdminModal();
+      renderAll();
+    }
+
+    function deleteProduct(productId) {
+      if (confirm('Are you sure you want to remove this chicken breed from listings?')) {
+        products = products.filter(p => p.id !== productId);
+        saveProductsToStorage();
+        renderAll();
+      }
+    }
+
+    // CART MANAGEMENT
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product || product.stock <= 0) return;
+
+      const existingCartItem = cart.find(item => item.id === productId);
+      if (existingCartItem) {
+        if (existingCartItem.quantity < product.stock) {
+          existingCartItem.quantity++;
+        } else {
+          alert(`Maximum available stock reached (${product.stock} head).`);
+        }
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          ageText: product.ageText,
+          quantity: 1
+        });
+      }
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function updateCartQuantity(productId, delta) {
+      const cartItem = cart.find(item => item.id === productId);
+      const product = products.find(p => p.id === productId);
+
+      if (cartItem) {
+        cartItem.quantity += delta;
+        if (cartItem.quantity > product.stock) {
+          cartItem.quantity = product.stock;
+          alert(`Maximum stock available is ${product.stock}`);
+        }
+        if (cartItem.quantity <= 0) {
+          cart = cart.filter(item => item.id !== productId);
+        }
+      }
+
+      updateCartUI();
+    }
+
+    function toggleCartDrawer(forceOpen = false) {
+      const drawer = document.getElementById('cartDrawer');
+      if (forceOpen) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.toggle('hidden');
+      }
+    }
+
+    function updateCartUI() {
+      const cartBadge = document.getElementById('cartBadge');
+      const cartItemsList = document.getElementById('cartItemsList');
+      const cartSubtotal = document.getElementById('cartSubtotal');
+      const cartTotal = document.getElementById('cartTotal');
+
+      const totalItemsCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+      cartBadge.innerText = totalItemsCount;
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+          <div class="text-center py-16 text-slate-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+            <p class="font-bold text-slate-600">Your cart is empty</p>
+            <p class="text-xs mt-1">Add some chickens to start your farm order.</p>
+          </div>
+        `;
+        cartSubtotal.innerText = "\$0.00";
+        cartTotal.innerText = "\$0.00";
+        return;
+      }
+
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      const shippingFee = 25.00;
+
+      cartItemsList.innerHTML = cart.map(item => `
+        <div class="flex items-center space-x-4 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+          <img src="${item.image}" class="w-16 h-16 rounded-xl object-cover">
+          <div class="flex-grow">
+            <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+            <p class="text-xs text-slate-500">${item.ageText}</p>
+            <span class="font-extrabold text-emerald-700 text-sm">$${item.price.toFixed(2)}</span>
+          </div>
+          <div class="flex items-center space-x-2 bg-white px-2 py-1 rounded-xl border border-slate-200">
+            <button onclick="updateCartQuantity('${item.id}', -1)" class="text-slate-500 hover:text-slate-800 font-bold px-1 text-sm">-</button>
+            <span class="font-bold text-xs w-4 text-center">${item.quantity}</span>
+            <button onclick="updateCartQuantity('${item.id}', 1)" class="text-slate-500 hover:text-slate-800 font-bold px-1 text-sm">+</button>
+          </div>
+        </div>
+      `).join('');
+
+      cartSubtotal.innerText = `$${subtotal.toFixed(2)}`;
+      cartTotal.innerText = `$${(subtotal + shippingFee).toFixed(2)}`;
+    }
+
+    function checkoutOrder() {
+      if (cart.length === 0) {
+        alert('Your cart is empty.');
+        return;
+      }
+
+      // Subtract inventory stock
+      cart.forEach(cartItem => {
+        const prod = products.find(p => p.id === cartItem.id);
+        if (prod) {
+          prod.stock = Math.max(0, prod.stock - cartItem.quantity);
+        }
+      });
+
+      saveProductsToStorage();
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer(false);
+      renderAll();
+
+      alert('Order successfully submitted! Thank you for ordering from Feather Choice Poultry.');
+    }
+
+    // Consolidated Re-render Trigger
+    function renderAll() {
+      renderFeatured();
+      renderProducts();
+      renderAdminTable();
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAll();
+    });
+  </script>
+</body>
+</html>
